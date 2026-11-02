@@ -1,0 +1,21 @@
+{
+    "updated": "2026-11-02 13:30",
+    "weeks": [
+        {
+            "von": "2026-11-02",
+            "bis": "2026-11-06",
+            "days": [
+                {"tag": "MO", "dish": "Hähnchengeschnetzeltes „Jäger Art“ mit Spätzle", "price": "10,80"},
+                {"tag": "DI", "dish": "Hackbraten mit Bratkartoffeln", "price": "10,90"},
+                {"tag": "MI", "dish": "Mit Tomate und Käse gefülltes Hähnchenbrustfilet an Reis", "price": "13,90"},
+                {"tag": "DO", "dish": "Kasseler-Nacken mit Sauerkraut und Schupfnudeln", "price": "13,80"},
+                {"tag": "FR", "dish": "Frisch-Fisch-Tag", "price": ""}
+            ]
+        }
+    ],
+    "daily": [
+        {"dish": "Dönerbox", "price": "7,90"},
+        {"dish": "Dönerteller", "price": "10,90"}
+    ],
+    "note": ""
+}
