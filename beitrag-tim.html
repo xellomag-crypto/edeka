@@ -64,4 +64,29 @@ var o=new IntersectionObserver(function(en){if(en[0].isIntersecting){o.disconnec
 }catch(e){}
 })();
 </script>
+
+<script>
+(function(){
+var m=document.getElementById('mk-menu');if(!m)return;
+var TAGS=['MO','DI','MI','DO','FR','SA'];
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function iso(d){var a=d.getMonth()+1,b=d.getDate();return d.getFullYear()+'-'+(a<10?'0':'')+a+'-'+(b<10?'0':'')+b}
+function fm(s){var p=s.split('-');return parseInt(p[2],10)+'.'+parseInt(p[1],10)+'.'}
+function pr(p){return p?p+' \u20ac':''}
+fetch('data/marktgrill.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+var t=new Date(),ti=iso(t),tt=TAGS[(t.getDay()+6)%7];
+var ws=(d.weeks||[]).filter(function(w){return w.bis>=ti&&w.days&&w.days.length}).sort(function(a,b){return a.von<b.von?-1:1});
+if(!ws.length)return;
+m.textContent='';
+ws.forEach(function(w){
+ m.appendChild(el('p','wk','Woche '+fm(w.von)+' bis '+fm(w.bis)));
+ w.days.sort(function(a,b){return TAGS.indexOf(a.tag)-TAGS.indexOf(b.tag)}).forEach(function(x){
+  var cur=w.von<=ti&&w.bis>=ti&&x.tag===tt,r=el('div','mr'+(cur?' today':''));
+  r.appendChild(el('div','d',x.tag));r.appendChild(el('div','g',x.dish));r.appendChild(el('div','p',pr(x.price)));m.appendChild(r)})});
+var dl=document.getElementById('mk-daily');
+if(dl&&d.daily&&d.daily.length){dl.textContent='';dl.appendChild(el('p','wk','T\u00e4glich'));d.daily.forEach(function(x){var r=el('div','mr two');r.appendChild(el('div','g',x.dish));r.appendChild(el('div','p',pr(x.price)));dl.appendChild(r)})}
+var n=document.getElementById('mk-note');if(n&&d.note){n.className='note';n.textContent=d.note}
+}).catch(function(){});
+})();
+</script>
 </body></html>
