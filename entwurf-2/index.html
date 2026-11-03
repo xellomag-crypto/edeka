@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16283A">
+<title>EDEKA Meyer · Entwurf 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16283A;--ink2:#24405C;--blue:#2D5B86;--soft:#DCE8F3;--bg:#F3F6F9;--line:#DAE2EA;--grey:#4A5B6B;--sun:#F3D35B;--ok:#2E9D6B}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+section{padding:72px 0}
+.eyebrow{font:700 13px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:0 0 10px}
+.h2{font:800 clamp(30px,4.6vw,44px)/1.06 'Bricolage Grotesque',sans-serif;margin:0 0 14px;color:var(--ink)}
+.lead{font-size:18px;color:var(--grey);margin:0;max-width:640px}
+.head{margin-bottom:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font:700 16px 'DM Sans',sans-serif;text-decoration:none;border:0;cursor:pointer;background:var(--ink);color:#fff}
+.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.btn.sun{background:var(--sun);color:var(--ink)}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;font:700 12px 'DM Sans',sans-serif;border:1px solid #9AA9B8;color:var(--ink2);background:#fff}
+.pill.on{background:var(--soft);border-color:var(--blue)}
+.pic{position:relative;overflow:hidden;background:#DCE6EF}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.tag{position:absolute;top:12px;left:12px;padding:5px 11px;border-radius:999px;background:rgba(22,40,58,.82);color:#fff;font:700 12px 'DM Sans',sans-serif;z-index:2}
+.grid{display:grid;gap:18px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.card .b{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{margin:0;font:800 24px 'Bricolage Grotesque',sans-serif}
+.card p{margin:0;color:var(--grey);font-size:15px}
+.demo{position:fixed;top:12px;right:12px;z-index:60;background:var(--sun);color:var(--ink);font:700 12px 'DM Sans',sans-serif;padding:6px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;background:var(--ink);overflow:hidden;color:#fff;padding:0}
+.hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero picture img{animation:zoom 2.8s cubic-bezier(.2,.6,.2,1) both}
+@keyframes zoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(14,26,38,.55),rgba(14,26,38,.1) 35%,rgba(14,26,38,.9))}
+.hero .top,.hero .bot{position:relative;z-index:2}
+.hero .top{padding-top:22px}
+.hero .top img{height:clamp(50px,8vw,96px);width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,.35))}
+.hero .bot{margin-top:auto;padding-bottom:110px;display:flex;flex-direction:column;gap:16px}
+.hero h1{font:800 clamp(44px,8vw,84px)/.98 'Bricolage Grotesque',sans-serif;margin:0;max-width:880px}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero p{margin:0;font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.9);max-width:600px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.chips a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);color:#fff;text-decoration:none;font:700 15px 'DM Sans',sans-serif;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.scrollhint{position:absolute;bottom:84px;left:50%;transform:translateX(-50%);z-index:2;width:26px;height:42px;border:2px solid rgba(255,255,255,.7);border-radius:14px}
+.scrollhint:after{content:'';position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:sh 1.8s infinite}
+@keyframes sh{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+
+/* Märkte */
+.mk .pic{aspect-ratio:16/10}
+.status{display:inline-flex;align-items:center;gap:8px;font:700 15px 'DM Sans',sans-serif;color:#1E4468}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--ok);display:inline-block;box-shadow:0 0 0 0 rgba(46,157,107,.6);animation:pulse 2s infinite}
+.dot.off{background:#B5473A;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(46,157,107,0)}100%{box-shadow:0 0 0 0 rgba(46,157,107,0)}}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.badge{align-self:flex-start;background:var(--sun);color:var(--ink);font:700 12px 'DM Sans',sans-serif;padding:4px 10px;border-radius:999px}
+
+/* Highlights */
+.hl{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:18px;min-height:560px}
+.hl a{position:relative;border-radius:22px;overflow:hidden;text-decoration:none;color:#fff;display:flex;align-items:flex-end;min-height:220px}
+.hl a:first-child{grid-row:span 2}
+.hl a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.hl a:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(14,26,38,.85))}
+.hl .t{position:relative;z-index:2;padding:22px}
+.hl b{display:block;font:800 clamp(24px,3vw,34px)/1.05 'Bricolage Grotesque',sans-serif}
+.hl span{font-size:15px;opacity:.9}
+.hl .sub{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+/* Geschichte */
+.story{background:var(--ink);color:#fff;border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+.story .txt{padding:48px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.story h2{font:800 clamp(30px,4vw,44px)/1.05 'Bricolage Grotesque',sans-serif;margin:0}
+.story p{margin:0;color:#D3DDE7}
+.story .pic{min-height:340px}
+.timeline{display:flex;gap:10px;flex-wrap:wrap}
+.timeline span{border:1px dashed rgba(255,255,255,.5);border-radius:999px;padding:6px 12px;font:700 13px 'DM Sans',sans-serif;color:#fff}
+
+/* Service A-Z */
+.svc{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.search{position:relative;max-width:560px;margin:4px 0 18px}
+.search input{width:100%;padding:16px 18px 16px 50px;border-radius:999px;border:2px solid var(--ink);font:500 17px 'DM Sans',sans-serif;background:#fff;color:var(--ink);outline:none}
+.search input:focus{box-shadow:0 0 0 4px var(--soft)}
+.search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%)}
+.mfilter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.mfilter button{padding:9px 16px;border-radius:999px;border:1px solid var(--ink);background:#fff;color:var(--ink);font:700 14px 'DM Sans',sans-serif;cursor:pointer}
+.mfilter button.on{background:var(--ink);color:#fff}
+.az{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px}
+.az details{background:var(--bg);border:1px solid var(--line);border-radius:14px}
+.az summary{list-style:none;cursor:pointer;padding:14px 16px;display:flex;align-items:center;gap:12px;font:700 16px 'DM Sans',sans-serif}
+.az summary::-webkit-details-marker{display:none}
+.az summary .l{flex:0 0 30px;height:30px;border-radius:9px;background:var(--ink);color:var(--sun);display:grid;place-items:center;font:800 15px 'Bricolage Grotesque',sans-serif}
+.az summary:after{content:'+';margin-left:auto;font:800 20px 'DM Sans',sans-serif;color:var(--blue)}
+.az details[open] summary:after{content:'\2212'}
+.az .a{padding:0 16px 16px 58px;color:var(--grey);font-size:15px;display:flex;flex-direction:column;gap:8px}
+.az .none{grid-column:1/-1;padding:18px;color:var(--grey);display:none}
+.ask{margin-top:22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;color:var(--grey)}
+
+/* Downloads */
+.dl{display:flex;gap:16px;align-items:flex-start;padding:20px;background:#fff;border:1px solid var(--line);border-radius:18px;text-decoration:none;color:var(--ink);cursor:pointer;text-align:left;font:inherit;width:100%}
+.dl .ic{flex:0 0 52px;height:52px;border-radius:14px;display:grid;place-items:center;background:var(--soft);color:var(--blue);font:800 13px 'DM Sans',sans-serif}
+.dl .ic.pdf{background:#FBE9E5;color:#B5473A}
+.dl .ic.frm{background:#E5F4EC;color:#1E7A50}
+.dl b{display:block;font:700 17px 'DM Sans',sans-serif}
+.dl i{font-style:normal;color:var(--grey);font-size:14px}
+
+/* Schwarzes Brett */
+.board{background:#C9A27A;background-image:radial-gradient(rgba(0,0,0,.06) 1px,transparent 1px);background-size:6px 6px;border-radius:24px;padding:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;box-shadow:inset 0 0 0 10px #8B6A48}
+.note{background:#FFFBEA;padding:18px 18px 20px;border-radius:4px;box-shadow:0 8px 18px rgba(0,0,0,.18);position:relative;transform:rotate(-1.4deg)}
+.note:nth-child(2n){transform:rotate(1.2deg);background:#EAF4FF}
+.note:nth-child(3n){transform:rotate(-.6deg);background:#EFFAEF}
+.note:before{content:'';position:absolute;top:-8px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:#C0392B;box-shadow:0 2px 3px rgba(0,0,0,.3)}
+.note .d{font:800 22px 'Bricolage Grotesque',sans-serif;color:var(--ink)}
+.note b{display:block;margin-top:6px;font:700 16px 'DM Sans',sans-serif}
+.note i{font-style:normal;color:var(--grey);font-size:14px}
+.note .v{display:inline-block;margin-top:10px;font:700 11px 'DM Sans',sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+.rules ul{margin:0;padding-left:20px;color:var(--grey)}
+.flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font:700 14px 'DM Sans',sans-serif}
+.flow span{background:#fff;border:1px solid var(--line);padding:8px 12px;border-radius:999px}
+.flow em{font-style:normal;color:var(--blue)}
+
+/* Team */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.way{background:var(--ink);color:#fff;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.way .n{font:800 34px 'Bricolage Grotesque',sans-serif;color:var(--sun)}
+.way b{font:700 19px 'DM Sans',sans-serif}
+.way i{font-style:normal;color:#D3DDE7;font-size:15px}
+.ways{display:grid;gap:14px}
+
+/* Instagram */
+.insta{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ig .pic{aspect-ratio:1;border-radius:8px}
+.big{font:800 clamp(28px,4vw,42px)/1.08 'Bricolage Grotesque',sans-serif;margin:0 0 14px}
+.big span{color:var(--blue)}
+
+/* Footer */
+footer{background:var(--ink);color:#D3DDE7;padding:56px 0 120px}
+footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+footer b{color:#fff;display:block;margin-bottom:6px;font:700 17px 'DM Sans',sans-serif}
+footer a{color:#fff}
+
+/* Modal */
+.modal{position:fixed;inset:0;z-index:80;display:none;align-items:flex-end;justify-content:center;background:rgba(14,26,38,.55)}
+.modal.open{display:flex}
+.sheet{background:#fff;width:100%;max-width:560px;max-height:92svh;overflow:auto;border-radius:24px 24px 0 0;padding:26px 22px 34px;animation:up .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes up{from{transform:translateY(40px);opacity:0}}
+@media (min-width:701px){.modal{align-items:center}.sheet{border-radius:24px}}
+.sheet h3{font:800 26px 'Bricolage Grotesque',sans-serif;margin:0 0 6px}
+.sheet .x{float:right;border:0;background:var(--bg);width:38px;height:38px;border-radius:50%;font:700 20px 'DM Sans',sans-serif;cursor:pointer}
+form label{display:block;font:700 14px 'DM Sans',sans-serif;margin:14px 0 6px}
+form input,form textarea,form select{width:100%;padding:13px 14px;border:1px solid #B9C6D3;border-radius:12px;font:400 16px 'DM Sans',sans-serif;background:#fff;color:var(--ink)}
+form textarea{min-height:90px;resize:vertical}
+form .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .btn{margin-top:20px;width:100%;justify-content:center}
+.hint{font-size:13px;color:var(--grey);margin-top:8px}
+.ok{display:none;text-align:center;padding:20px 0}
+.ok .ck{width:64px;height:64px;border-radius:50%;background:#E5F4EC;margin:0 auto 14px;display:grid;place-items:center}
+.ok p{color:var(--grey)}
+
+.split{display:grid;grid-template-columns:1fr 1fr}
+.split.ep{grid-template-columns:220px 1fr}
+/* Bottom bar mobile */
+.bar{display:none}
+@media (max-width:700px){
+  .wrap{padding:0 20px}
+  section{padding:52px 0}
+  .lead{font-size:16px}
+  .g3,.g4,.team,.rules,.insta,.story,footer .cols{grid-template-columns:1fr}
+  .swipe{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:4px 20px 14px;scroll-padding:0 20px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .swipe::-webkit-scrollbar{display:none}
+  .swipe>*{flex:0 0 84%;scroll-snap-align:center}
+  .hl{display:flex;flex-direction:column;min-height:0}
+  .hl a:first-child{min-height:420px}
+  .hl .sub{grid-template-columns:1fr 1fr;gap:12px}
+  .hl .sub a{min-height:190px}
+  .az{grid-template-columns:1fr}
+  .split,.split.ep{grid-template-columns:1fr}
+  .split .pic{min-height:240px!important}
+  .split.ep .pic{min-height:380px!important}
+  .board{grid-template-columns:1fr;padding:22px;box-shadow:inset 0 0 0 7px #8B6A48}
+  .story .txt{padding:30px 24px}
+  .story .pic{min-height:260px;order:-1}
+  .bar{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:50;background:rgba(22,40,58,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:20px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .35s ease}
+  .bar.hide{transform:translateY(130%)}
+  .bar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 2px;color:#D3DDE7;text-decoration:none;font:700 11px 'DM Sans',sans-serif;border-radius:14px}
+  .bar a.on{background:rgba(255,255,255,.1);color:#fff}
+  .hero .bot{padding-bottom:120px}
+}
+@media (hover:hover){
+  .card:hover .pic img,.hl a:hover img{transform:scale(1.05)}
+  .card{transition:transform .28s ease,box-shadow .28s ease}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(22,40,58,.14)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .rv.in{opacity:1;transform:none}
+}
+@media (prefers-reduced-motion:reduce){.hero picture img,.dot,.scrollhint:after{animation:none}}
+</style>
+</head>
+<body>
+
+<span class="demo">Entwurf 2 · Demo</span>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <picture>
+    <source media="(max-width:700px)" srcset="../img/aac75546264dd72346eb309abaa105f2.jpg">
+    <img src="../img/4faf9cf976ef3f0a5a1b2df23c263c68.jpg" alt="" style="object-position:50% 35%">
+  </picture>
+  <div class="wrap top"><img src="../img/4286a88d2db5a40ed17ace5b2cefbb31.png" alt="EDEKA Meyer"></div>
+  <div class="wrap bot">
+    <p class="eyebrow" style="color:#fff">Nenndorf · Hittfeld · Vahrendorf</p>
+    <h1>Mehr als ein <em>Supermarkt.</em></h1>
+    <p>Drei Märkte, eine Weinstube, ein Sushi-Stand und Höfe aus der Nachbarschaft. Alles, was Sie wissen wollen, an einem Ort.</p>
+    <div class="chips">
+      <a href="weinstube.html#fruehstueck">Frühstück Weinstube →</a>
+      <a href="weinstube.html">Speisekarte Weinstube →</a>
+      <a href="marktgrill.html">Speisekarte Marktgrill →</a>
+    </div>
+  </div>
+  <span class="scrollhint" aria-hidden="true"></span>
+</section>
+
+<!-- MÄRKTE -->
+<section id="maerkte">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Ihr Markt</p><h2 class="h2">Welcher Markt darf es heute sein?</h2><p class="lead">Öffnungszeiten, Ansprechpartner und alles, was es vor Ort gibt.</p></div>
+    <div class="grid g3 swipe">
+      <a class="card mk rv" href="nenndorf.html" style="text-decoration:none;color:inherit">
+        <div class="pic"><img src="../img/62efff64e3c0b0dd959e7d35ee258c40.jpg" alt="Obst und Gemüse in Nenndorf"></div>
+        <div class="b"><h3>Nenndorf</h3><span class="status" data-open="1-5:8-20,6:8-18"><span class="dot"></span><span>…</span></span>
+          <div class="pills"><span class="pill on">Sushi-Stand</span><span class="pill on">Weinstube</span><span class="pill on">Marktgrill</span><span class="pill on">Fisch</span><span class="pill on">Kaffeerösterei</span></div></div>
+      </a>
+      <a class="card mk rv" href="hittfeld.html" style="text-decoration:none;color:inherit">
+        <div class="pic"><img src="../img/e2685cbfc083dda350cf514f6b99514e.jpg" alt="Auszubildende an der Käsetheke" style="object-position:50% 30%"><span class="tag">Platzhalterbild</span></div>
+        <div class="b"><h3>Hittfeld</h3><span class="status" data-open="1-5:8-20,6:8-18"><span class="dot"></span><span>…</span></span>
+          <div class="pills"><span class="pill on">Leergut mit großer Trommel</span><span class="pill on">Bäcker</span></div></div>
+      </a>
+      <a class="card mk rv" href="vahrendorf.html" style="text-decoration:none;color:inherit">
+        <div class="pic"><img src="../img/d59be5233cae9f750ba25c5200b5e855.jpg" alt="Weinabteilung"><span class="tag">Platzhalterbild</span></div>
+        <div class="b"><span class="badge">Auch sonntags geöffnet</span><h3>Vahrendorf</h3><span class="status" data-open="1-6:6-22,0:7-18"><span class="dot"></span><span>…</span></span>
+          <div class="pills"><span class="pill on">Hybridmarkt</span><span class="pill on">Selbstbezahlkasse</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="mehr" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Nur bei Meyer</p><h2 class="h2">Das gibt es nicht an jeder Ecke.</h2></div>
+    <div class="hl">
+      <a href="nenndorf.html#besonderes" class="rv"><img src="../img/b3d1f6a50f17ee7544fec3b19627b478.jpg" alt="Sushi-Stand in Nenndorf"><div class="t"><span>Nenndorf</span><b>Der Sushi-Stand</b><span>Frisch gerollt, mitten im Markt.</span></div></a>
+      <a href="weinstube.html" class="rv"><img src="../img/459d6a7fb3a7528b6faff9394ff8a9f0.jpg" alt="Weinstube"><div class="t"><span>Nenndorf</span><b>Die Weinstube</b><span>Frühstück, Torte, Mittagstisch, Wein.</span></div></a>
+      <div class="sub">
+        <a href="nenndorf.html#besonderes" class="rv"><img src="../img/fb53ff2dab660a6fb19f2713bb445cbe.jpg" alt="Fischtheke"><div class="t"><b style="font-size:22px">Fischtheke</b></div></a>
+        <a href="nenndorf.html#besonderes" class="rv"><img src="../img/3b19cbca847dd86bde5f8c585b1abfbc.jpg" alt="Kaffeeröster"><div class="t"><b style="font-size:22px">Kaffeerösterei</b></div></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGION -->
+<section id="region" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Aus der Nachbarschaft</p><h2 class="h2">Wer hat's gemacht?</h2><p class="lead">Höfe und Manufakturen aus der Region. Ein Klick führt zum Hof.</p></div>
+    <div class="grid g4 swipe">
+      <a class="card rv" href="hof.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/6403101d0071eaac454cffd17bbfe693.jpg" alt="Spargelernte"></div><div class="b"><span class="pill on" style="align-self:flex-start">April bis Juni</span><h3>Spargel</h3><p>Hof Bartels</p></div></a>
+      <a class="card rv" href="hof.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/383205a650eae36689d5ec256d83e7f7.jpg" alt="Hühner im Stall"></div><div class="b"><span class="pill on" style="align-self:flex-start">ganzjährig</span><h3>Eier</h3><p>Geflügelhof Schönecke</p></div></a>
+      <a class="card rv" href="hof.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/d1244f94178d2bfe280d94df9a8e953c.jpg" alt="Schinken im Reiferaum"></div><div class="b"><span class="pill on" style="align-self:flex-start">Saison folgt</span><h3>Schinken</h3><p>Manufaktur Basedal</p></div></a>
+      <a class="card rv" href="hof.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/9d509464e0ed3f1bf216287b1f57b9e8.jpg" alt="Erdbeeren"></div><div class="b"><span class="pill on" style="align-self:flex-start">Saison folgt</span><h3>Erdbeeren</h3><p>Erdbeerhof Busch</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- GESCHICHTE -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="story rv">
+      <div class="txt">
+        <p class="eyebrow" style="color:var(--sun)">Familie Meyer</p>
+        <h2>Ein Familienbetrieb. Und das merkt man.</h2>
+        <p>Hier erzählt die Familie, wie aus einem Markt drei wurden. Mit alten Fotos, den Menschen von damals und denen von heute.</p>
+        <div class="timeline"><span>Der Anfang</span><span>Der zweite Markt</span><span>Vahrendorf</span><span>Heute</span></div>
+        <p style="font-size:13px;opacity:.7">Kapitel in Arbeit. Bilder und Texte kommen von der Familie.</p>
+      </div>
+      <div class="pic"><img src="../img/c91c7ff4c6ea2adf21e12b20483ae465.jpg" alt="Titelseite MEHR Meyer" style="object-position:50% 70%"><span class="tag">Platzhalterbild</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- AKTUELLES -->
+<section id="aktuelles" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Aktuelles</p><h2 class="h2">Was bei Meyer gerade passiert.</h2></div>
+    <div class="grid g3 swipe">
+      <a class="card rv" href="beitrag-weinstube.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/aac75546264dd72346eb309abaa105f2.jpg" alt="Küchenchef der Weinstube" style="object-position:50% 40%"></div><div class="b"><span class="eyebrow" style="margin:0">Weinstube</span><h3 style="font-size:20px">Zwei neue Gerichte auf der festen Karte</h3></div></a>
+      <a class="card rv" href="beitrag-calle.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/91e52f578e01a91611ce323cb1fa5ca9.jpg" alt="Calle Hofmann in der Küche"></div><div class="b"><span class="eyebrow" style="margin:0">Aufgetischt</span><h3 style="font-size:20px">Kohlrouladen ohne Bindfaden</h3></div></a>
+      <a class="card rv" href="beitrag-tim.html" style="text-decoration:none;color:inherit"><div class="pic" style="aspect-ratio:4/3"><img src="../img/ef0ea866b8dee381fc30154bd0e63e0f.jpg" alt="Tim Fischer mit einer Kiste Äpfel" style="object-position:50% 30%"></div><div class="b"><span class="eyebrow" style="margin:0">Ausbildung · Hittfeld</span><h3 style="font-size:20px">Der Beste im Norden</h3></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE A-Z -->
+<section class="svc" id="service">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Der Infotresen, der nie zumacht</p><h2 class="h2">Gibt es bei Ihnen eigentlich …?</h2><p class="lead">Einfach eintippen. Die Markierung zeigt, in welchem Markt es das gibt. So fährt keiner umsonst.</p></div>
+    <div class="search rv">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6.5" fill="none" stroke="#16283A" stroke-width="2.2"/><path d="M13.5 13.5 18 18" stroke="#16283A" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="z. B. Leergut, Sushi, Sonntag" autocomplete="off" aria-label="Service durchsuchen">
+    </div>
+    <div class="mfilter" id="mf"><button class="on" data-m="">Alle Märkte</button><button data-m="N">Nenndorf</button><button data-m="H">Hittfeld</button><button data-m="V">Vahrendorf</button></div>
+    <div class="az" id="az"></div>
+    <div class="ask">Ihre Frage ist nicht dabei? <button class="btn light" data-open="frage">Frage stellen</button></div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section id="downloads">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Bestellen und Herunterladen</p><h2 class="h2">Alles zum Mitnehmen.</h2><p class="lead">Bestellscheine zum Ausdrucken oder gleich online ausfüllen. Die Anfrage landet direkt in der richtigen Abteilung.</p></div>
+    <div class="grid g3">
+      <a class="dl rv" href="downloads/bestellschein-praesentkorb.pdf" download><span class="ic pdf">PDF</span><span><b>Bestellschein Präsentkorb</b><i>Ausdrucken, ausfüllen, im Markt abgeben.</i></span></a>
+      <a class="dl rv" href="downloads/bestellschein-feiertage.pdf" download><span class="ic pdf">PDF</span><span><b>Bestellschein Feiertage</b><i>Braten, Platten, Fisch. Rechtzeitig vorbestellen.</i></span></a>
+      <button class="dl rv" data-open="korb"><span class="ic frm">Online</span><span><b>Präsentkorb online anfragen</b><i>Formular ausfüllen, Abholung im Wunschmarkt.</i></span></button>
+      <button class="dl rv" data-open="frage"><span class="ic frm">Online</span><span><b>Lob, Kritik, Fragen</b><i>Geht direkt an die Marktleitung.</i></span></button>
+      <a class="dl rv" href="#gewerbe"><span class="ic">B2B</span><span><b>Für Firmen und Gewerbe</b><i>Präsentkörbe, Gutscheine, Catering.</i></span></a>
+      <a class="dl rv" href="https://www.yumpu.com/user/edekameyer" target="_blank" rel="noopener"><span class="ic">E</span><span><b>MEHR Meyer E-Paper</b><i>Alle Ausgaben im Archiv.</i></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHWARZES BRETT -->
+<section id="termine" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap">
+      <div><p class="eyebrow">Schwarzes Brett der Region</p><h2 class="h2">Was ist los in der Nachbarschaft?</h2><p class="lead">Vereine tragen ihre Termine selbst ein. Wir prüfen kurz, dann hängt der Zettel hier.</p></div>
+      <button class="btn sun" data-open="termin">+ Termin eintragen</button>
+    </div>
+    <div class="board rv" id="board"></div>
+    <div class="rules">
+      <div class="rv"><b>Wer darf aushängen?</b>
+        <ul><li>Vereine und gemeinnützige Gruppen aus Nenndorf, Hittfeld, Vahrendorf und Umgebung</li><li>Keine Parteiwerbung, keine kommerziellen Angebote</li><li>Vergangene Termine wandern automatisch ins Archiv</li></ul></div>
+      <div class="rv"><b>So kommt Ihr Termin ans Brett</b>
+        <div class="flow" style="margin-top:10px"><span>Formular</span><em>→</em><span>Prüfung</span><em>→</em><span>Online</span></div>
+        <p class="hint">Teilen Sie den Link in Ihrer Vereinsgruppe. So erfahren alle davon.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GEWERBE -->
+<section id="gewerbe" style="padding-top:0">
+  <div class="wrap">
+    <div class="card rv split">
+      <div class="pic" style="min-height:300px"><img src="../img/ae359fabba3b5fbd9ac0c3f568b51aee.jpg" alt="Präsentkorb mit regionalen Produkten"></div>
+      <div class="b" style="padding:32px;justify-content:center;gap:12px">
+        <p class="eyebrow">Für Firmen und Gewerbe</p>
+        <h3 style="font-size:30px">Danke sagen, das ankommt.</h3>
+        <p>Präsentkörbe für Kunden und Mitarbeiter, Gutscheine, Platten für Jubiläen und Feiern. Ein Ansprechpartner, eine Anfrage, Abholung im Wunschmarkt.</p>
+        <div><button class="btn" data-open="korb">Anfrage stellen</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM / PFLEGE -->
+<section id="team" style="background:#fff;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head rv"><p class="eyebrow">Fürs Team</p><h2 class="h2">Die Seite bleibt frisch. Ohne Technik-Kram.</h2><p class="lead">Das Team meldet Neuigkeiten, Speisekarten und Termine. Xello prüft, baut ein und stellt online.</p></div>
+    <div class="team">
+      <div class="ways">
+        <div class="way rv"><span class="n">1</span><b>Auf Zuruf</b><i>Neue Öffnungszeit, ein Foto, ein Termin. Kurz per WhatsApp oder Mail, wird eingebaut.</i></div>
+        <div class="way rv"><span class="n">2</span><b>Per Formular</b><i>News, neue Azubis, Aktionen. Ausfüllen, absenden, fertig.</i></div>
+        <div class="way rv"><span class="n">3</span><b>Mit eigenem Login</b><i>Speisekarten trägt das Personal selbst ein, gern zwei Wochen im Voraus.</i></div>
+      </div>
+      <a class="card rv" href="team.html" style="text-decoration:none;color:inherit">
+        <div class="pic" style="aspect-ratio:4/3"><img src="../img/e4b4468fd3501970eef5cc8ddd00ca37.jpg" alt="Marktleitung im Markt" style="object-position:50% 25%"></div>
+        <div class="b"><h3>Zum Teambereich</h3><p>Geschützter Bereich für Mitarbeiter: Speisekarte eintragen, News melden, Vereinstermine freigeben, Vorlagen herunterladen.</p><span class="btn" style="align-self:flex-start;margin-top:6px">Demo ansehen →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="insta">
+  <div class="wrap insta">
+    <div class="rv">
+      <p class="eyebrow">Instagram</p>
+      <p class="big">Instagram ist das Schaufenster.<br><span>Hier ist der Laden.</span></p>
+      <p class="lead">Auf Instagram sehen Sie, was heute neu ist. Hier finden Sie alles, was bleibt: Zeiten, Karten, Ansprechpartner, Bestellungen.</p>
+      <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="#insta">Auf Instagram folgen</a><a class="btn light" href="#insta">YouTube</a></div>
+    </div>
+    <div class="ig rv">
+      <div class="pic"><img src="../img/fb53ff2dab660a6fb19f2713bb445cbe.jpg" alt=""></div>
+      <div class="pic"><img src="../img/3b19cbca847dd86bde5f8c585b1abfbc.jpg" alt=""></div>
+      <div class="pic"><img src="../img/1f492f348dcfaaab7e9fd1c97383e37e.jpg" alt=""></div>
+      <div class="pic"><img src="../img/9d509464e0ed3f1bf216287b1f57b9e8.jpg" alt=""></div>
+      <div class="pic"><img src="../img/aac75546264dd72346eb309abaa105f2.jpg" alt=""></div>
+      <div class="pic"><img src="../img/e2685cbfc083dda350cf514f6b99514e.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- E-PAPER -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <a href="https://www.yumpu.com/de/document/read/71321904/e-paper-november-26" target="_blank" rel="noopener" class="card rv split ep" style="text-decoration:none;color:inherit">
+      <div class="pic" style="min-height:300px"><img src="../img/c91c7ff4c6ea2adf21e12b20483ae465.jpg" alt="Titelseite MEHR Meyer November 2026"><span class="tag">Neu</span></div>
+      <div class="b" style="padding:28px;justify-content:center"><p class="eyebrow">Das E-Paper</p><h3 style="font-size:28px">MEHR Meyer, November 2026</h3><p>Rezepte, Geschichten aus der Region und Aktionen aus den Märkten. Jeden Monat neu.</p><span class="btn" style="align-self:flex-start;margin-top:8px">Jetzt lesen →</span></div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div><b>Nenndorf</b>Eckeler Str. 7<br>21224 Rosengarten-Nenndorf<br><a href="tel:+494108413880">04108/41388-0</a></div>
+    <div><b>Hittfeld</b>Pastorenwiesen 26<br>21218 Seevetal-Hittfeld<br><a href="tel:+494105692750">04105/692750</a></div>
+    <div><b>Vahrendorf</b>Harburger Straße 27<br>21224 Rosengarten-Vahrendorf<br><a href="tel:+49410841810">04108/41810</a></div>
+    <div><b>Rechtliches</b>Impressum · Datenschutz<br><a href="team.html">Teambereich</a><br><span style="opacity:.6;font-size:13px">Entwurf 2 · Xello</span></div>
+  </div>
+</footer>
+
+<nav class="bar" id="bar">
+  <a href="#maerkte"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 10 12 3l9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Märkte</a>
+  <a href="#mehr"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>Highlights</a>
+  <a href="#service"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Service</a>
+  <a href="#termine"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Termine</a>
+  <a href="#downloads"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 21h16"/></svg>Bestellen</a>
+</nav>
+
+<!-- MODALS -->
+<div class="modal" id="m-termin" role="dialog" aria-modal="true" aria-label="Termin eintragen"><div class="sheet">
+  <button class="x" data-close aria-label="Schließen">×</button>
+  <h3>Termin eintragen</h3><p class="hint" style="margin:0 0 4px">Für Vereine und gemeinnützige Gruppen. Wir prüfen und stellen den Termin online.</p>
+  <form data-msg="Danke! Ihr Termin ist eingegangen. Wir prüfen ihn kurz, danach hängt er am Schwarzen Brett.">
+    <label>Verein oder Gruppe</label><input required placeholder="z. B. Sportverein Hittfeld">
+    <div class="row2"><div><label>Datum</label><input type="date" required></div><div><label>Uhrzeit</label><input type="time"></div></div>
+    <label>Was ist geplant?</label><input required placeholder="z. B. Weihnachtsmarkt auf dem Sportplatz">
+    <label>Ort</label><input placeholder="Adresse oder Treffpunkt">
+    <label>Kurzer Text</label><textarea placeholder="Zwei, drei Sätze reichen."></textarea>
+    <label>Plakat oder Foto (optional)</label><input type="file" accept="image/*">
+    <label>Ansprechpartner und E-Mail</label><input type="email" required placeholder="name@verein.de">
+    <button class="btn" type="submit">Zur Prüfung senden</button>
+    <p class="hint">Demo: Es wird nichts verschickt.</p>
+  </form>
+  <div class="ok"></div>
+</div></div>
+
+<div class="modal" id="m-korb" role="dialog" aria-modal="true" aria-label="Präsentkorb anfragen"><div class="sheet">
+  <button class="x" data-close aria-label="Schließen">×</button>
+  <h3>Präsentkorb anfragen</h3><p class="hint" style="margin:0 0 4px">Eine Anfrage für alle Märkte. Wir melden uns mit Vorschlägen.</p>
+  <form data-msg="Danke! Ihre Anfrage ist bei der Präsentkorb-Abteilung. Wir melden uns mit Vorschlägen.">
+    <label>Name oder Firma</label><input required>
+    <div class="row2"><div><label>Anzahl Körbe</label><input type="number" min="1" value="1"></div><div><label>Abholen am</label><input type="date"></div></div>
+    <label>Abholung in</label><select><option>Nenndorf</option><option>Hittfeld</option><option>Vahrendorf</option></select>
+    <label>Was soll rein?</label><textarea placeholder="Wein, Regionales, Feinkost, ohne Alkohol …"></textarea>
+    <label>Telefon oder E-Mail</label><input required>
+    <button class="btn" type="submit">Anfrage senden</button>
+    <p class="hint">Demo: Es wird nichts verschickt.</p>
+  </form>
+  <div class="ok"></div>
+</div></div>
+
+<div class="modal" id="m-frage" role="dialog" aria-modal="true" aria-label="Frage stellen"><div class="sheet">
+  <button class="x" data-close aria-label="Schließen">×</button>
+  <h3>Frage, Lob oder Kritik</h3><p class="hint" style="margin:0 0 4px">Geht direkt an die Marktleitung. Häufige Fragen landen später im Service von A bis Z.</p>
+  <form data-msg="Danke! Ihre Nachricht ist bei der Marktleitung angekommen.">
+    <label>Markt</label><select><option>Nenndorf</option><option>Hittfeld</option><option>Vahrendorf</option></select>
+    <label>Worum geht es?</label><select><option>Frage</option><option>Lob</option><option>Kritik</option><option>Produktwunsch</option></select>
+    <label>Ihre Nachricht</label><textarea required></textarea>
+    <label>E-Mail für die Antwort</label><input type="email">
+    <button class="btn" type="submit">Absenden</button>
+    <p class="hint">Demo: Es wird nichts verschickt.</p>
+  </form>
+  <div class="ok"></div>
+</div></div>
+
+<script>
+(function(){
+/* Öffnungsstatus live */
+var now=new Date(),wd=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+document.querySelectorAll('[data-open]').forEach(function(s){
+  if(s.tagName==='BUTTON')return;
+  var rules=s.getAttribute('data-open').split(','),txt='Heute geschlossen',open=false;
+  rules.forEach(function(r){var p=r.split(':'),d=p[0].split('-').map(Number),t=p[1].split('-').map(Number);
+    var inDay=d.length>1?(wd>=d[0]&&wd<=d[1]):wd===d[0];
+    if(inDay){if(h>=t[0]&&h<t[1]){open=true;txt='Jetzt geöffnet bis '+t[1]+' Uhr'}else if(h<t[0]){txt='Öffnet heute um '+t[0]+' Uhr'}else{txt='Heute geschlossen'}}});
+  s.lastElementChild.textContent=txt;if(!open)s.firstElementChild.classList.add('off');
+});
+
+/* Service A-Z */
+var S=[
+['Wasserfilter','Wasserfilter und Kartuschen gibt es am Infotresen.','NHV','wasserfilter brita kartusche'],
+['App','Die EDEKA-App gibt es im App Store und bei Google Play. Angebote, Einkaufsliste, Markt wählen.','NHV','app handy smartphone'],
+['Bäcker','Frische Brötchen und Brot, jeden Morgen.','NHV','brot brötchen frühstück'],
+['Bio, Regionales, Vegan, Glutenfrei','Gibt es in allen Märkten. Fragen Sie gern am Infotresen, wo genau es steht.','NHV','bio vegan glutenfrei regional'],
+['Blumen','Frische Schnittblumen und Sträuße beim Blumenladen im Markt.','N','blumen strauß'],
+['E-Paper MEHR Meyer','Jeden Monat neu: Rezepte, Geschichten, Aktionen.','NHV','magazin zeitung epaper'],
+['Einkaufswagen mit Kindersitz','Ja, in allen Märkten.','NHV','kind baby kindersitz wagen'],
+['Fischtheke','Frischer Fisch mit Wochenangeboten.','N','fisch lachs'],
+['Handyzubehör und Schuhreparatur','Im kleinen Shop im Markt: Hüllen, Zubehör, Schuhservice.','N','handy hülle schuh reparatur'],
+['Kaffeerösterei','Frisch gerösteter Kaffee direkt im Markt.','N','kaffee bohnen'],
+['Kontaktlos bezahlen','An allen Kassen, mit Karte oder Handy.','NHV','bezahlen karte handy ec'],
+['Ladekarten und Gutscheinkarten','Am Infotresen.','NHV','guthaben prepaid karte gutschein'],
+['Leergut','Leergutautomaten in allen Märkten. In Hittfeld mit großer Trommel: einfach alles reinwerfen.','NHV','pfand flaschen leergut'],
+['Marktgrill','Mittagstisch und Döner, Montag bis Freitag 10 bis 16 Uhr.','N','mittag essen döner grill'],
+['Müllsäcke','Am Infotresen.','NHV','müll säcke beutel'],
+['Päckchen abgeben und abholen','Im Markt Nenndorf.','N','paket post päckchen hermes'],
+['Präsentkörbe','Eine Anfrage für alle Märkte, Abholung im Wunschmarkt.','NHV','geschenk korb präsent'],
+['Selbstbezahlkassen','Nenndorf hat vier SB-Kassen. In Vahrendorf bezahlen Sie außerhalb der Personalzeiten selbst.','NV','sb kasse selbst scannen'],
+['Sonntag einkaufen','In Vahrendorf, sonntags und an Feiertagen 7 bis 18 Uhr.','V','sonntag feiertag hybrid'],
+['Sushi','Der Sushi-Stand in Nenndorf. Frisch gerollt, zum Mitnehmen.','N','sushi japanisch maki'],
+['Tabakwaren und Zeitungen','Am Infotresen.','NHV','zigaretten tabak zeitung zeitschrift'],
+['Tisch in der Weinstube','Am besten anrufen: 04108/41388-23. Gruppen bitte vorher melden.','N','reservieren tisch weinstube'],
+['Vorbestellen','Feiertagsbraten, Platten, Partyservice. An der Theke, telefonisch oder mit Bestellschein.','NHV','bestellen platte party braten'],
+['Weinstube','Frühstück, Torte, Mittagstisch und Wein. Montag bis Samstag.','N','frühstück torte kuchen wein essen']
+];
+var az=document.getElementById('az'),q=document.getElementById('q'),mf=document.getElementById('mf'),cur='';
+var MN={N:'Nenndorf',H:'Hittfeld',V:'Vahrendorf'};
+S.sort(function(a,b){return a[0].localeCompare(b[0],'de')});
+S.forEach(function(x){
+  var d=document.createElement('details');d.dataset.k=(x[0]+' '+x[1]+' '+x[3]).toLowerCase();d.dataset.m=x[2];
+  var pills=['N','H','V'].map(function(k){return '<span class="pill'+(x[2].indexOf(k)>-1?' on':'')+'">'+MN[k]+'</span>'}).join(' ');
+  d.innerHTML='<summary><span class="l">'+x[0].charAt(0)+'</span>'+x[0]+'</summary><div class="a"><span>'+x[1]+'</span><div class="pills">'+pills+'</div></div>';
+  az.appendChild(d)});
+var none=document.createElement('div');none.className='none';none.textContent='Dazu haben wir noch nichts. Stellen Sie Ihre Frage, wir antworten und ergänzen die Liste.';az.appendChild(none);
+function filt(){var v=q.value.trim().toLowerCase(),n=0;
+  az.querySelectorAll('details').forEach(function(d){var ok=(!v||d.dataset.k.indexOf(v)>-1)&&(!cur||d.dataset.m.indexOf(cur)>-1);d.style.display=ok?'':'none';if(ok)n++;d.open=!!v&&ok&&v.length>2});
+  none.style.display=n?'none':'block'}
+q.addEventListener('input',filt);
+mf.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;cur=b.dataset.m;mf.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});filt()});
+
+/* Schwarzes Brett: abgelaufene Termine verschwinden automatisch */
+var T=[
+['2026-10-31','Heimatverein','Laternenumzug durchs Dorf'],
+['2026-11-20','Chor Nenndorf','Adventskonzert in der Kirche, 17 Uhr'],
+['2026-11-28','Freiwillige Feuerwehr','Tag der offenen Tür am Gerätehaus'],
+['2026-12-06','Sportverein Hittfeld','Weihnachtsmarkt auf dem Sportplatz'],
+['2027-01-10','Landfrauen','Neujahrsfrühstück im Gemeindehaus']
+];
+var today=new Date();today.setHours(0,0,0,0);var board=document.getElementById('board'),WD=['So','Mo','Di','Mi','Do','Fr','Sa'],shown=0;
+T.forEach(function(t){var d=new Date(t[0]+'T00:00:00');if(d<today||shown>=3)return;shown++;
+  var n=document.createElement('div');n.className='note';
+  n.innerHTML='<div class="d">'+WD[d.getDay()]+', '+d.getDate()+'.'+(d.getMonth()+1)+'.</div><b>'+t[1]+'</b><i>'+t[2]+'</i><br><span class="v">Beispieltermin</span>';board.appendChild(n)});
+
+/* Modals und Demo-Formulare */
+function open(id){var m=document.getElementById('m-'+id);if(!m)return;m.classList.add('open');document.body.style.overflow='hidden'}
+function close(m){m.classList.remove('open');document.body.style.overflow='';var f=m.querySelector('form'),ok=m.querySelector('.ok');if(f){f.style.display='';f.reset()}if(ok)ok.style.display='none'}
+document.querySelectorAll('button[data-open]').forEach(function(b){b.addEventListener('click',function(){open(b.dataset.open)})});
+document.querySelectorAll('.modal').forEach(function(m){
+  m.addEventListener('click',function(e){if(e.target===m||e.target.hasAttribute('data-close'))close(m)});
+  var f=m.querySelector('form');if(!f)return;
+  f.addEventListener('submit',function(e){e.preventDefault();var ok=m.querySelector('.ok');f.style.display='none';
+    ok.innerHTML='<div class="ck"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1E7A50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></div><h3>Angekommen.</h3><p>'+f.dataset.msg+'</p><button class="btn" data-close style="margin-top:10px">Schließen</button>';ok.style.display='block'})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.modal.open').forEach(close)});
+
+/* Reveal */
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.08});
+  document.querySelectorAll('.rv').forEach(function(e){var i=[].indexOf.call(e.parentElement.children,e);e.style.transitionDelay=Math.min(i,4)*80+'ms';io.observe(e)});
+}else{document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')})}
+
+/* Bottom-Bar: auf dem Hero verstecken, aktiven Bereich markieren */
+var bar=document.getElementById('bar'),hero=document.getElementById('top'),links=[].slice.call(bar.querySelectorAll('a'));
+function onScroll(){bar.classList.toggle('hide',scrollY<hero.offsetHeight*.6);
+  var y=scrollY+innerHeight*.35,act=null;links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s&&s.offsetTop<=y)act=a});
+  links.forEach(function(a){a.classList.toggle('on',a===act)})}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+</body>
+</html>
