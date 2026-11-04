@@ -53,8 +53,6 @@ section{padding:72px 0}
 .hero p{margin:0;font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,.9);max-width:600px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .chips a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);color:#fff;text-decoration:none;font:700 15px 'DM Sans',sans-serif;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
-.scrollhint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;width:26px;height:42px;border:2px solid rgba(255,255,255,.7);border-radius:14px}
-.scrollhint:after{content:'';position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:#fff;animation:sh 1.8s infinite}
 @keyframes sh{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
 
 /* Märkte */
@@ -207,7 +205,7 @@ form .btn{margin-top:20px;width:100%;justify-content:center}
   .rv{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .rv.in{opacity:1;transform:none}
 }
-@media (prefers-reduced-motion:reduce){.hero picture img,.dot,.scrollhint:after{animation:none}}
+@media (prefers-reduced-motion:reduce){.hero picture img,.dot{animation:none}}
 
 /* Speisekarten */
 .sheet .eyebrow{margin:0 0 4px}
@@ -249,7 +247,6 @@ form .btn{margin-top:20px;width:100%;justify-content:center}
       <button data-open="marktgrill">Speisekarte Marktgrill →</button>
     </div>
   </div>
-  <span class="scrollhint" aria-hidden="true"></span>
 </section>
 
 <section id="maerkte">
