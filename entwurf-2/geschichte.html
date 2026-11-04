@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16283A">
+<title>Unsere Geschichte | EDEKA Meyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16283A;--ink2:#24405C;--blue:#2D5B86;--soft:#DCE8F3;--bg:#F3F6F9;--line:#DAE2EA;--grey:#4A5B6B;--sun:#F3D35B}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue)}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+.eyebrow{font:700 13px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:999px;font:700 16px 'DM Sans',sans-serif;text-decoration:none;background:var(--ink);color:#fff}
+.btn.sun{background:var(--sun);color:var(--ink)}
+.btn.light{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.chip{display:inline-block;padding:10px 18px;border-radius:999px;font:700 15px 'DM Sans',sans-serif;border:1px solid var(--ink);color:var(--ink);background:#fff;text-decoration:none}
+.demo{position:fixed;top:12px;right:12px;z-index:60;background:var(--sun);color:var(--ink);font:700 12px 'DM Sans',sans-serif;padding:6px 12px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.ph{font-style:normal;background:#FBF1C7;color:#5C4A12;border-radius:6px;padding:0 6px;white-space:nowrap}
+
+/* Kopf */
+.top{background:#fff;border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;padding-top:14px;padding-bottom:14px}
+.top img{height:44px;width:auto}
+
+/* Hero */
+.hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;background:var(--ink);color:#fff;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%;animation:zoom 2.8s cubic-bezier(.2,.6,.2,1) both}
+@keyframes zoom{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(14,26,38,.35),rgba(14,26,38,.05) 35%,rgba(14,26,38,.88))}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-bottom:72px;display:flex;flex-direction:column;gap:16px}
+.hero h1{font:800 clamp(42px,7.4vw,82px)/.98 'Bricolage Grotesque',sans-serif;margin:0;max-width:900px}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero p{margin:0;font-size:clamp(17px,2vw,21px);color:rgba(255,255,255,.92);max-width:620px}
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.jump a{padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.5);color:#fff;text-decoration:none;font:700 14px 'DM Sans',sans-serif;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+
+/* Intro */
+.intro{padding:80px 0 24px}
+.intro p{font:500 clamp(22px,2.8vw,30px)/1.38 'DM Sans',sans-serif;color:var(--ink);margin:0;max-width:900px}
+.intro p b{font-weight:700;color:var(--blue)}
+
+/* Zeitleiste */
+.line{position:relative;padding:40px 0 40px}
+.line:before{content:'';position:absolute;top:0;bottom:0;left:calc(50% - 1px);width:2px;background:repeating-linear-gradient(var(--line) 0 10px,transparent 10px 18px)}
+.st{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0 88px;align-items:center;padding:56px 0}
+.st:before{content:'';position:absolute;left:calc(50% - 9px);top:50%;width:18px;height:18px;border-radius:50%;background:var(--sun);box-shadow:0 0 0 6px var(--bg),0 0 0 8px var(--ink)}
+.st.flip .media{order:2}
+.st>*{min-width:0}
+.media{position:relative}
+.frame{position:relative;overflow:hidden;border-radius:18px;background:#DCE6EF;aspect-ratio:3/2}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.frame.tall{aspect-ratio:4/5}
+.print{background:#fff;padding:14px 14px 46px;border-radius:4px;box-shadow:0 18px 40px rgba(22,40,58,.22);transform:rotate(-1.8deg)}
+.print .frame{border-radius:2px}
+.print figcaption{position:absolute;left:18px;bottom:14px;font:italic 400 15px 'DM Sans',sans-serif;color:var(--grey)}
+.empty{display:flex;align-items:flex-end;background:repeating-linear-gradient(135deg,#DCE6EF 0 14px,#D2DFEA 14px 28px)}
+.empty span{margin:14px;padding:6px 12px;background:var(--bg);border-radius:999px;font:700 13px 'DM Sans',sans-serif;color:var(--ink2)}
+.cap{font:400 14px/1.45 'DM Sans',sans-serif;color:var(--grey);margin:12px 0 0}
+.txt{display:flex;flex-direction:column;gap:14px}
+.yr{align-self:flex-start;font:800 15px 'Bricolage Grotesque',sans-serif;background:var(--ink);color:var(--sun);padding:6px 14px;border-radius:999px;letter-spacing:.04em}
+.txt h2{font:800 clamp(30px,3.8vw,44px)/1.05 'Bricolage Grotesque',sans-serif;margin:0}
+.txt p{margin:0;font:400 18px/1.65 'DM Sans',sans-serif;color:#243645}
+.qt{margin:6px 0 0;padding:0;font:500 clamp(20px,2.2vw,24px)/1.35 'Bricolage Grotesque',sans-serif;color:var(--blue)}
+.qt cite{display:block;margin-top:8px;font:700 13px 'DM Sans',sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--grey)}
+
+/* Große Bildpause */
+.pause{position:relative;min-height:72svh;display:flex;align-items:flex-end;overflow:hidden;color:#fff;margin:40px 0}
+.pause img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.pause:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(14,26,38,.85))}
+.pause .wrap{position:relative;z-index:2;width:100%;padding-bottom:56px}
+.pause blockquote{margin:0;max-width:760px;font:800 clamp(30px,4.6vw,54px)/1.05 'Bricolage Grotesque',sans-serif}
+.pause cite{display:block;margin-top:14px;font:700 14px 'DM Sans',sans-serif;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:var(--sun)}
+
+/* Damals / Heute */
+.dh{padding:72px 0}
+.dh .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.dh .frame{aspect-ratio:4/3}
+.dh .lab{position:absolute;top:14px;left:14px;z-index:2;padding:6px 14px;border-radius:999px;font:700 13px 'DM Sans',sans-serif;background:var(--ink);color:#fff}
+.dh .lab.now{background:var(--sun);color:var(--ink)}
+.h2{font:800 clamp(30px,4.6vw,44px)/1.06 'Bricolage Grotesque',sans-serif;margin:10px 0 0}
+.lead{font-size:18px;color:var(--grey);margin:12px 0 0;max-width:640px}
+
+/* Ausblick */
+.next{background:var(--ink);color:#fff;padding:88px 0}
+.next .big{color:#fff;font:800 clamp(34px,5.2vw,62px)/1.04 'Bricolage Grotesque',sans-serif;margin:14px 0 0;max-width:960px}
+.next .big em{font-style:normal;color:var(--sun)}
+.next p{color:#D3DDE7;font-size:18px;max-width:620px;margin:18px 0 0}
+.next .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+footer{background:#0F1E2C;color:#D3DDE7;padding:48px 0 64px}
+footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+footer b{color:#fff;display:block;margin-bottom:6px;font:700 17px 'DM Sans',sans-serif}
+footer a{color:#fff}
+
+@media (max-width:860px){
+  .wrap{padding:0 20px}
+  .line:before{left:19px}
+  .st{grid-template-columns:1fr;gap:22px;padding:36px 0 36px 44px}
+  .st:before{left:11px;top:44px}
+  .st.flip .media{order:0}
+  .intro{padding:52px 0 8px}
+  .txt p{font-size:17px}
+  .dh .grid,footer .cols{grid-template-columns:1fr}
+  .hero .wrap{padding-bottom:48px}
+  .print{transform:rotate(-1deg)}
+  .ph{white-space:normal}
+}
+@media (hover:hover){.media:hover .frame img{transform:scale(1.04)}}
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .rv.in{opacity:1;transform:none}
+  .print.rv{transform:translateY(28px) rotate(-1.8deg)}
+  .print.rv.in{transform:rotate(-1.8deg)}
+}
+@media (prefers-reduced-motion:reduce){.hero img{animation:none}}
+</style>
+</head>
+<body>
+<span class="demo">Entwurf 2 · Blindtext</span>
+
+<header class="top">
+  <div class="wrap">
+    <a href="index.html"><img src="../img/1bfb8302972fdf51095ece324ea7a4bc.png" alt="EDEKA Meyer"></a>
+    <a class="chip" href="index.html#geschichte">Zurück zur Startseite</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="../img/geschichte-trecker.jpg" alt="Mann mit Heugabel lehnt an einem grünen MAN Ackerdiesel vor einer Backsteinscheune">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#fff">Unsere Geschichte · Familie Meyer</p>
+    <h1>Angefangen hat es mit <em>Erde an den Stiefeln.</em></h1>
+    <p>Bevor es Kassen, Kühltheken und eine Weinstube gab, gab es einen Hof in <i class="ph">[Ort]</i>. Und eine Familie, die wusste, wo das Essen herkommt.</p>
+    <nav class="jump" aria-label="Kapitel">
+      <a href="#wurzeln">Die Wurzeln</a><a href="#feld">Zwei Generationen</a><a href="#markt">Der erste Markt</a><a href="#weinstube">Die Weinstube</a><a href="#nachwuchs">Der Nachwuchs</a><a href="#heute">Heute</a>
+    </nav>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <p class="rv">Drei Märkte in Nenndorf, Hittfeld und Vahrendorf. Das klingt nach Firma. Ist aber vor allem <b>eine Familie</b>, die seit <i class="ph">[Anzahl]</i> Generationen dasselbe macht: Leute aus der Gegend gut versorgen.</p>
+  </div>
+</section>
+
+<div class="wrap line">
+
+  <article class="st" id="wurzeln">
+    <div class="media rv">
+      <div class="frame"><img src="../img/geschichte-trecker.jpg" alt="Landwirt mit Heugabel am grünen MAN Ackerdiesel" style="object-position:62% 45%"></div>
+      <p class="cap"><i class="ph">[Name]</i> auf dem Hof, <i class="ph">[Jahr]</i></p>
+    </div>
+    <div class="txt rv">
+      <span class="yr">[19XX]</span>
+      <h2>Erst der Acker, dann der Laden.</h2>
+      <p>Die Meyers waren Landwirte, bevor sie Kaufleute wurden. <i class="ph">[Name]</i> bewirtschaftete den Hof in <i class="ph">[Ort]</i>, früh raus, spät rein, sieben Tage die Woche. Der grüne MAN Ackerdiesel steht heute noch in der Scheune. Gepflegt wie am ersten Tag.</p>
+      <p>Wer selbst Kartoffeln aus dem Boden holt, verkauft keine schlechten. Dieser Satz fiel am Küchentisch öfter.</p>
+      <p class="qt">„[O-Ton der Familie: Wie war das Leben auf dem Hof?]“<cite><i class="ph">[Name, Generation]</i></cite></p>
+    </div>
+  </article>
+
+  <article class="st flip" id="feld">
+    <div class="media rv">
+      <div class="frame"><img src="../img/geschichte-feld.jpg" alt="Zwei grüne MAN Ackerdiesel auf einem Stoppelfeld, links ein Mann, rechts ein kleiner Junge am Steuer"></div>
+      <p class="cap">Zwei Trecker, zwei Generationen: <i class="ph">[Name]</i> und <i class="ph">[Name]</i>, <i class="ph">[Jahr]</i></p>
+    </div>
+    <div class="txt rv">
+      <span class="yr">[19XX]</span>
+      <h2>Einer fährt vor. Der Kleine fährt mit.</h2>
+      <p>Auf diesem Foto sitzt der Junge kaum höher als das Lenkrad. Angst hatte er trotzdem keine. Bei den Meyers lernt man früh, dass man mit anpackt, wenn Arbeit ansteht. Ernte, Stall, später der Markt.</p>
+      <p>Weitergegeben wurde dabei mehr als ein Betrieb. Eine Haltung. Ordentlich arbeiten, freundlich bleiben, die Nachbarn kennen.</p>
+    </div>
+  </article>
+
+  <article class="st" id="markt">
+    <div class="media rv">
+      <div class="frame empty"><span>Archivfoto folgt: der erste Markt</span></div>
+      <p class="cap">Der erste Markt in <i class="ph">[Ort]</i>, <i class="ph">[Jahr]</i></p>
+    </div>
+    <div class="txt rv">
+      <span class="yr">[19XX]</span>
+      <h2>Aus dem Hofladen wird ein Markt.</h2>
+      <p><i class="ph">[Jahr]</i> eröffnet der erste EDEKA Meyer in <i class="ph">[Ort]</i>. <i class="ph">[Größe oder Besonderheit]</i>, eine Handvoll Mitarbeiter, die Familie mittendrin. Viele Kunden von damals kaufen heute noch hier. Inzwischen mit ihren Enkeln.</p>
+      <p>Danach ging es Schritt für Schritt weiter: <i class="ph">[Umbau, Erweiterung, Hittfeld, Vahrendorf]</i>.</p>
+    </div>
+  </article>
+
+</div>
+
+<section class="pause">
+  <img src="../img/geschichte-tresen.jpg" alt="Junger Mann im schwarzen Polo mit der Aufschrift Wir lieben Lebensmittel schenkt am Ausschank Bier aus" style="object-position:55% 30%">
+  <div class="wrap">
+    <blockquote class="rv">„[Ein Satz über Feste, Nachbarn und den Tresen.]“<cite><i class="ph" style="color:#5C4A12">[Name]</i> beim <i class="ph" style="color:#5C4A12">[Fest, Jahr]</i></cite></blockquote>
+  </div>
+</section>
+
+<div class="wrap line">
+
+  <article class="st" id="weinstube">
+    <div class="media rv">
+      <div class="frame"><img src="../img/459d6a7fb3a7528b6faff9394ff8a9f0.jpg" alt="Die Weinstube in Nenndorf mit Tresen und Sitzbereich"></div>
+      <p class="cap">Die Weinstube in Nenndorf</p>
+    </div>
+    <div class="txt rv">
+      <span class="yr">[20XX]</span>
+      <h2>Und dann kam die Weinstube.</h2>
+      <p>Ein Supermarkt mit Restaurant? Damals schüttelten einige den Kopf. Heute frühstücken hier Rentner neben Handwerkern, mittags wird es voll, abends gibt es Wein vom eigenen Regal. Die Idee hatte <i class="ph">[Name]</i>.</p>
+      <p class="qt">„[O-Ton: Warum eine Weinstube im Markt?]“<cite><i class="ph">[Name]</i></cite></p>
+      <a href="weinstube.html" style="font:700 16px 'DM Sans',sans-serif">Zur Weinstube</a>
+    </div>
+  </article>
+
+  <article class="st flip" id="nachwuchs">
+    <figure class="media print rv" style="margin:0">
+      <div class="frame" style="aspect-ratio:4/3"><img src="../img/geschichte-generation.jpg" alt="Vier Personen im Markt, in der Mitte zwei junge Leute in blauen EDEKA-Westen"></div>
+      <figcaption><i class="ph">[Namen von links]</i>, <i class="ph">[Jahr]</i></figcaption>
+    </figure>
+    <div class="txt rv">
+      <span class="yr">[20XX]</span>
+      <h2>Die nächste Generation zieht die Weste an.</h2>
+      <p>Der Junge vom Trecker ist erwachsen geworden. Statt Stoppelfeld jetzt Gemüseabteilung, statt Lenkrad Namensschild. Gelernt wird im eigenen Haus, bei denselben Leuten, die ihn als Kind durch die Gänge laufen sahen.</p>
+      <p>Geschenkt bekommt man bei Meyer trotzdem nichts. Wer übernehmen will, steht erst mal an der Kasse.</p>
+    </div>
+  </article>
+
+  <article class="st" id="heute">
+    <div class="media rv">
+      <div class="frame tall"><img src="../img/geschichte-paar.jpg" alt="Lachende Frau legt einem Mann den Arm um die Schulter" style="object-position:52% 35%"></div>
+      <p class="cap"><i class="ph">[Name]</i> und <i class="ph">[Name]</i></p>
+    </div>
+    <div class="txt rv">
+      <span class="yr">Heute</span>
+      <h2>Die zwei, die den Laden zusammenhalten.</h2>
+      <p><i class="ph">[Name]</i> und <i class="ph">[Name]</i> führen EDEKA Meyer heute. Drei Märkte, <i class="ph">[Anzahl]</i> Mitarbeiter, eine Weinstube, ein Marktgrill. Und trotzdem stehen die beiden noch selbst im Markt. Wer sie sucht, findet sie meistens zwischen Kühltheke und Kaffeerösterei.</p>
+      <p class="qt">„[O-Ton: Was ist euch nach all den Jahren am wichtigsten?]“<cite><i class="ph">[Name]</i></cite></p>
+    </div>
+  </article>
+
+</div>
+
+<section class="dh">
+  <div class="wrap">
+    <p class="eyebrow rv">Damals und heute</p>
+    <h2 class="h2 rv">Gleicher Ort, andere Zeit.</h2>
+    <p class="lead rv">Das alte Foto und ein neues, vom selben Standpunkt aus fotografiert.</p>
+    <div class="grid">
+      <div class="frame rv"><span class="lab">Damals · [Jahr]</span><img src="../img/geschichte-feld.jpg" alt="Zwei Trecker auf dem Stoppelfeld, damals"></div>
+      <div class="frame empty rv"><span class="lab now">Heute</span><span>Neues Foto vom selben Ort folgt</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="wrap">
+    <p class="eyebrow rv" style="color:var(--sun)">Wie es weitergeht</p>
+    <p class="big rv">Wir verkaufen Lebensmittel. <em>Eigentlich geht es um die Leute, die sie kaufen.</em></p>
+    <p class="rv">Blindtext für den Abschluss. Hier steht später ein Satz der Familie, wofür Meyer steht und wohin es geht.</p>
+    <div class="row rv">
+      <a class="btn sun" href="index.html#team">Team und Jobs</a>
+      <a class="btn light" href="index.html#maerkte">Unsere Märkte</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap cols">
+    <div><b>Nenndorf</b>Eckeler Str. 7<br>21224 Rosengarten-Nenndorf<br><a href="tel:+494108413880">04108/41388-0</a></div>
+    <div><b>Hittfeld</b>Pastorenwiesen 26<br>21218 Seevetal-Hittfeld<br><a href="tel:+494105692750">04105/692750</a></div>
+    <div><b>Vahrendorf</b>Harburger Straße 27<br>21224 Rosengarten-Vahrendorf<br><a href="tel:+49410841810">04108/41810</a></div>
+    <div><b>Rechtliches</b>Impressum · Datenschutz<br><span style="opacity:.6;font-size:13px">Entwurf 2 · Xello</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(function(e){var i=[].indexOf.call(e.parentElement.children,e);e.style.transitionDelay=Math.min(i,3)*110+'ms';io.observe(e)});
+})();
+</script>
+</body>
+</html>
