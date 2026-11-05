@@ -347,14 +347,6 @@ form .btn{margin-top:20px;width:100%;justify-content:center}
 
 <script>
 (function(){
-var now=new Date(),wd=now.getDay(),h=now.getHours()+now.getMinutes()/60;
-document.querySelectorAll('[data-hours]').forEach(function(s){
-  var txt='Heute geschlossen',open=false;
-  s.getAttribute('data-hours').split(',').forEach(function(r){var p=r.split(':'),d=p[0].split('-').map(Number),t=p[1].split('-').map(Number);
-    var inDay=d.length>1?(wd>=d[0]&&wd<=d[1]):wd===d[0];
-    if(inDay){if(h>=t[0]&&h<t[1]){open=true;txt='Jetzt geöffnet bis '+t[1]+' Uhr'}else if(h<t[0]){txt='Öffnet heute um '+t[0]+' Uhr'}}});
-  s.lastElementChild.textContent=txt;if(!open)s.firstElementChild.classList.add('off');
-});
 function open(id){var m=document.getElementById('m-'+id);if(!m)return;m.classList.add('open');m.querySelector('.sheet').scrollTop=0;document.body.style.overflow='hidden'}
 function close(m){m.classList.remove('open');document.body.style.overflow=''}
 document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();open(b.dataset.open)})});
@@ -393,6 +385,39 @@ var dl=document.getElementById('mk-daily');
 if(dl&&d.daily&&d.daily.length){dl.textContent='';dl.appendChild(el('p','wk','T\u00e4glich'));d.daily.forEach(function(x){var r=el('div','mr two');r.appendChild(el('div','g',x.dish));r.appendChild(el('div','p',pr(x.price)));dl.appendChild(r)})}
 var n=document.getElementById('mk-note');if(n&&d.note){n.className='note';n.textContent=d.note}
 }).catch(function(){});
+})();
+</script>
+<script>
+/* Öffnungsstatus live nach deutscher Uhrzeit. data-hours="1-5:8-20,6:8-18" (0=So … 6=Sa) */
+(function(){
+var TAGE=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+function jetzt(){
+  try{var o={};new Intl.DateTimeFormat('de-DE',{timeZone:'Europe/Berlin',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()).forEach(function(x){o[x.type]=x.value});
+    return {d:{So:0,Mo:1,Di:2,Mi:3,Do:4,Fr:5,Sa:6}[o.weekday.replace('.','')],h:(+o.hour)+(+o.minute)/60};}
+  catch(e){var n=new Date();return {d:n.getDay(),h:n.getHours()+n.getMinutes()/60};}
+}
+function plan(spec){var w=[null,null,null,null,null,null,null];
+  spec.split(',').forEach(function(r){var p=r.split(':'),d=p[0].split('-').map(Number),t=p[1].split('-').map(Number);
+    for(var i=d[0];i<=(d.length>1?d[1]:d[0]);i++)w[i]=t;});return w;}
+function lage(spec){var t=jetzt(),w=plan(spec),z=w[t.d];
+  if(z&&t.h>=z[0]&&t.h<z[1])return {offen:true,bis:z[1]};
+  if(z&&t.h<z[0])return {offen:false,heute:true,wann:'',um:z[0]};
+  for(var i=1;i<=7;i++){var d=(t.d+i)%7;if(w[d])return {offen:false,wann:i===1?'morgen ':TAGE[d]+' ',um:w[d][0]};}
+  return {offen:false};}
+function update(){
+  document.querySelectorAll('[data-hours]').forEach(function(el){
+    var l=lage(el.getAttribute('data-hours'));
+    if(el.getAttribute('data-hours-mode')==='heute'){
+      el.textContent=l.offen?'bis '+l.bis+' Uhr':(l.heute?'ab '+l.um+' Uhr':'geschlossen');return;}
+    var txt=l.offen?'Jetzt geöffnet bis '+l.bis+' Uhr':'Geschlossen'+(l.um!=null?' · öffnet '+l.wann+'um '+l.um+' Uhr':'');
+    var dot=el.querySelector('.dot'),out=el.lastElementChild&&el.lastElementChild!==dot?el.lastElementChild:null;
+    if(!out){out=document.createElement('span');Array.prototype.slice.call(el.childNodes).forEach(function(n){if(n.nodeType===3)el.removeChild(n)});el.appendChild(out);}
+    out.textContent=txt;
+    if(dot){dot.classList.toggle('off',!l.offen);dot.style.background=l.offen?'':'#B5473A';dot.style.animation=l.offen?'':'none';}
+  });
+}
+update();setInterval(update,30000);
+document.addEventListener('visibilitychange',function(){if(!document.hidden)update()});
 })();
 </script>
 </body>
