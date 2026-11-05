@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#16283A">
+<title>Mitarbeiter-Bereich | EDEKA Meyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#16283A;--ink2:#24405C;--blue:#2D5B86;--soft:#DCE8F3;--bg:#F3F6F9;--line:#DAE2EA;--grey:#4A5B6B;--sun:#F3D35B;--ok:#2E9D6B;--red:#B5473A}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px 80px}
+header{background:var(--ink);color:#fff;padding:18px 0 22px;margin-bottom:22px}
+header .wrap{padding-bottom:0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+header b{font:800 20px/1.1 'Bricolage Grotesque',sans-serif;display:block;white-space:nowrap}
+header small{color:#B9C8D6}
+header a,header button{color:#fff;font:700 13px 'DM Sans',sans-serif;background:rgba(255,255,255,.12);border:0;border-radius:999px;padding:8px 12px;text-decoration:none;cursor:pointer;white-space:nowrap}
+.demo{background:#FFF6D6;border:1px solid #EBD58A;border-radius:14px;padding:12px 14px;font-size:14px;margin-bottom:18px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:16px;padding:12px 6px;font:700 14px/1.2 'DM Sans',sans-serif;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
+.tabs button span{font-size:22px}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 18px;display:none}
+.card.on{display:block}
+h2{font:800 26px/1.1 'Bricolage Grotesque',sans-serif;margin:0 0 6px}
+.hint{color:var(--grey);margin:0 0 18px;font-size:15px}
+label{display:block;font:700 14px 'DM Sans',sans-serif;margin:16px 0 6px}
+input[type=text],input[type=password],input[type=date],textarea,select{width:100%;font:400 17px 'DM Sans',sans-serif;padding:13px 14px;border:1px solid #B9C6D3;border-radius:12px;background:#fff;color:var(--ink)}
+textarea{min-height:140px;resize:vertical}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.two label{margin-top:0}
+.pick{display:flex;gap:8px}
+.pick label{flex:1;margin:0;border:1px solid #B9C6D3;border-radius:12px;padding:12px;display:flex;gap:8px;align-items:center;cursor:pointer;font-weight:500}
+.sw{width:18px;height:18px;border-radius:50%}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;width:100%;margin-top:22px;padding:16px;border:0;border-radius:999px;background:var(--ink);color:#fff;font:700 17px 'DM Sans',sans-serif;cursor:pointer}
+.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line);margin-top:10px}
+.btn.del{background:#fff;color:var(--red);border:1px solid #E6C3BE;margin-top:10px}
+.foto{border:2px dashed #B9C6D3;border-radius:16px;min-height:150px;display:grid;place-items:center;text-align:center;color:var(--grey);cursor:pointer;overflow:hidden;position:relative;background:var(--bg)}
+.foto img{width:100%;max-height:300px;object-fit:cover;display:block}
+.foto input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.row{display:grid;grid-template-columns:1fr 92px 40px;gap:8px;margin-top:8px}
+.row input{padding:11px 12px}
+.row button{border:0;background:var(--bg);border-radius:10px;font:700 20px 'DM Sans',sans-serif;color:var(--grey);cursor:pointer}
+.add{margin-top:10px;background:none;border:0;color:var(--blue);font:700 15px 'DM Sans',sans-serif;cursor:pointer;padding:6px 0}
+.state{display:inline-block;margin-top:14px;padding:6px 12px;border-radius:999px;font:700 13px 'DM Sans',sans-serif;background:var(--bg)}
+.state.live{background:#E2F3EA;color:#1E6B48}.state.plan{background:var(--soft);color:var(--ink2)}.state.aus{background:#F6E3E0;color:var(--red)}
+.list{margin-top:26px;border-top:1px solid var(--line);padding-top:8px}
+.item{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #E8EEF3}
+.item img,.item .ph{width:56px;height:56px;border-radius:10px;object-fit:cover;background:var(--soft);flex:none}
+.item div{flex:1;min-width:0}.item b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.item small{color:var(--grey)}
+.item a{font:700 14px 'DM Sans',sans-serif;color:var(--blue);text-decoration:none;margin-right:6px}
+.item button{border:0;background:none;color:var(--red);font:700 14px 'DM Sans',sans-serif;cursor:pointer}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);background:var(--ok);color:#fff;padding:14px 18px;border-radius:16px;font:700 15px 'DM Sans',sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.2);transition:transform .3s;z-index:9;display:flex;gap:14px;align-items:center;width:max-content;max-width:calc(100% - 24px)}
+.toast span{white-space:nowrap}
+.toast.show{transform:translate(-50%,0)}
+.toast a{color:#fff;white-space:nowrap}
+/* Login */
+.login{min-height:100svh;display:grid;place-items:center;padding:24px;background:var(--ink)}
+.login form{background:#fff;border-radius:24px;padding:30px 24px;width:100%;max-width:380px}
+.login h1{font:800 28px 'Bricolage Grotesque',sans-serif;margin:0 0 4px}
+.err{color:var(--red);font-weight:700;font-size:14px;min-height:20px;margin-top:8px}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="login" id="login">
+  <form id="loginForm">
+    <p style="margin:0 0 6px;font:700 13px 'DM Sans';letter-spacing:.12em;text-transform:uppercase;color:var(--blue)">EDEKA Meyer</p>
+    <h1>Mitarbeiter-Bereich</h1>
+    <p class="hint">Hier pflegen Sie Hinweise, Neuigkeiten und die Weinstuben-Karte.</p>
+    <label for="pw">Passwort</label>
+    <input type="password" id="pw" autocomplete="current-password" placeholder="Demo-Passwort: meyer">
+    <div class="err" id="err"></div>
+    <button class="btn" type="submit">Anmelden</button>
+  </form>
+</div>
+
+<div id="app" hidden>
+<header><div class="wrap">
+  <div><b>Mitarbeiter</b><small>EDEKA Meyer · Demo</small></div>
+  <div style="display:flex;gap:8px"><a href="index.html" target="_blank">Zur Seite</a><button id="logout">Abmelden</button></div>
+</div></header>
+
+<div class="wrap">
+  <div class="demo"><b>Demo-Modus:</b> Alles, was Sie hier speichern, sieht nur dieses Gerät. Auf dem echten Server sehen es sofort alle Besucher.</div>
+
+  <div class="tabs">
+    <button data-tab="hinweis" class="on"><span>📣</span>Hinweis oben</button>
+    <button data-tab="beitrag"><span>📰</span>Neuer Beitrag</button>
+    <button data-tab="karte"><span>🍷</span>Weinstube</button>
+  </div>
+
+  <!-- 1. Störer -->
+  <section class="card on" id="t-hinweis">
+    <h2>Hinweis oben auf der Seite</h2>
+    <p class="hint">Ein Balken über der ganzen Seite. Er erscheint am ersten Tag und verschwindet nach dem letzten Tag von allein.</p>
+    <label for="st-text">Text</label>
+    <input type="text" id="st-text" maxlength="140" placeholder="z. B. Am Montag, 24.11., bleibt die Weinstube geschlossen.">
+    <div class="two" style="margin-top:16px">
+      <div><label for="st-von">Zeigen ab</label><input type="date" id="st-von"></div>
+      <div><label for="st-bis">Zeigen bis</label><input type="date" id="st-bis"></div>
+    </div>
+    <label>Farbe</label>
+    <div class="pick">
+      <label><input type="radio" name="farbe" value="gelb" checked><span class="sw" style="background:var(--sun)"></span>Hinweis</label>
+      <label><input type="radio" name="farbe" value="rot"><span class="sw" style="background:var(--red)"></span>Wichtig</label>
+    </div>
+    <span class="state" id="st-state" hidden></span>
+    <button class="btn" id="st-save">Hinweis speichern</button>
+    <button class="btn del" id="st-del">Hinweis entfernen</button>
+  </section>
+
+  <!-- 2. Beitrag -->
+  <section class="card" id="t-beitrag">
+    <h2>Neuer Beitrag</h2>
+    <p class="hint">Foto, Überschrift, ein paar Sätze. Der Beitrag steht sofort ganz vorne unter „Aktuelles“.</p>
+    <label>Foto</label>
+    <div class="foto" id="foto"><span id="foto-t">📷<br>Foto auswählen oder aufnehmen</span><input type="file" id="bp-bild" accept="image/*"></div>
+    <label for="bp-rubrik">Rubrik</label>
+    <select id="bp-rubrik">
+      <option>Aktuelles</option><option>Weinstube</option><option>Team</option><option>Ausbildung</option><option>Aktion</option><option>Aus der Region</option>
+    </select>
+    <label for="bp-titel">Überschrift</label>
+    <input type="text" id="bp-titel" maxlength="80" placeholder="z. B. Der Grünkohl ist zurück">
+    <label for="bp-kurz">Ein Satz für die Startseite</label>
+    <input type="text" id="bp-kurz" maxlength="110" placeholder="z. B. Ab sofort jeden Donnerstag in der Weinstube.">
+    <label for="bp-text">Text <span style="font-weight:400;color:var(--grey)">(Leerzeile = neuer Absatz)</span></label>
+    <textarea id="bp-text"></textarea>
+    <button class="btn" id="bp-save">Beitrag veröffentlichen</button>
+    <div class="list" id="bp-list"></div>
+  </section>
+
+  <!-- 3. Weinstube -->
+  <section class="card" id="t-karte">
+    <h2>Weinstube: Gerichte der Woche</h2>
+    <p class="hint">Gericht und Preis eintragen, speichern. Die Speisekarte auf der Startseite zeigt sofort die neuen Gerichte.</p>
+    <div id="wk-rows"></div>
+    <button class="add" id="wk-add">+ Gericht hinzufügen</button>
+    <button class="btn" id="wk-save">Karte speichern</button>
+    <button class="btn light" id="wk-reset">Zurück zur Original-Karte</button>
+  </section>
+
+  <button class="btn light" id="reset" style="margin-top:30px">Demo komplett zurücksetzen</button>
+</div>
+</div>
+
+<div class="toast" id="toast"><span id="toast-t">Gespeichert</span><a href="index.html" target="_blank">Ansehen →</a></div>
+
+<script>
+(function(){
+var KEY='meyer-cms-v1',PW='meyer';
+function $(i){return document.getElementById(i)}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+function save(d){try{localStorage.setItem(KEY,JSON.stringify(d));return true}catch(e){alert('Speicher voll. Bitte einen älteren Beitrag löschen oder ein kleineres Foto nehmen.');return false}}
+function today(){try{return new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Berlin',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}catch(e){return new Date().toISOString().slice(0,10)}}
+function de(s){var p=s.split('-');return parseInt(p[2],10)+'.'+parseInt(p[1],10)+'.'}
+var tt;function toast(t,href){$('toast-t').textContent=t;$('toast').querySelector('a').href=href||'index.html';$('toast').classList.add('show');clearTimeout(tt);tt=setTimeout(function(){$('toast').classList.remove('show')},4500)}
+
+/* Login (Demo: nur im Browser geprüft. Live: Prüfung auf dem Server) */
+function enter(){$('login').hidden=true;$('app').hidden=false;init()}
+if(sessionStorage.getItem('meyer-login')==='1')enter();
+$('loginForm').onsubmit=function(e){e.preventDefault();if($('pw').value.trim().toLowerCase()===PW){sessionStorage.setItem('meyer-login','1');enter()}else{$('err').textContent='Passwort stimmt nicht.'}};
+$('logout').onclick=function(){sessionStorage.removeItem('meyer-login');location.reload()};
+
+/* Tabs */
+[].forEach.call(document.querySelectorAll('.tabs button'),function(b){b.onclick=function(){
+  [].forEach.call(document.querySelectorAll('.tabs button'),function(x){x.classList.toggle('on',x===b)});
+  [].forEach.call(document.querySelectorAll('.card'),function(c){c.classList.toggle('on',c.id==='t-'+b.dataset.tab)});
+}});
+
+var started=false;
+function init(){if(started)return;started=true;
+  var d=load();
+
+  /* 1. Störer */
+  var s=d.stoerer||{};
+  $('st-text').value=s.text||'';$('st-von').value=s.von||today();$('st-bis').value=s.bis||today();
+  if(s.farbe==='rot')document.querySelector('input[name=farbe][value=rot]').checked=true;
+  function state(){var s=load().stoerer,el=$('st-state'),h=today();
+    if(!s||!s.text){el.hidden=true;return}el.hidden=false;
+    if(s.bis&&s.bis<h){el.className='state aus';el.textContent='Abgelaufen seit '+de(s.bis)}
+    else if(s.von&&s.von>h){el.className='state plan';el.textContent='Geplant ab '+de(s.von)}
+    else{el.className='state live';el.textContent='● Läuft gerade'+(s.bis?' bis '+de(s.bis):'')}}
+  state();
+  $('st-save').onclick=function(){
+    var t=$('st-text').value.trim();if(!t){$('st-text').focus();return}
+    var v=$('st-von').value,b=$('st-bis').value;if(v&&b&&b<v){alert('„Zeigen bis“ liegt vor „Zeigen ab“.');return}
+    var d=load();d.stoerer={text:t,von:v,bis:b,farbe:document.querySelector('input[name=farbe]:checked').value};
+    if(save(d)){state();toast('Hinweis gespeichert')}};
+  $('st-del').onclick=function(){var d=load();delete d.stoerer;save(d);$('st-text').value='';state();toast('Hinweis entfernt')};
+
+  /* 2. Beitrag */
+  var bild=null;
+  $('bp-bild').onchange=function(){var f=this.files[0];if(!f)return;
+    var r=new FileReader();r.onload=function(){var img=new Image();img.onload=function(){
+      var m=1400,w=img.width,h=img.height,k=Math.min(1,m/Math.max(w,h)),c=document.createElement('canvas');
+      c.width=Math.round(w*k);c.height=Math.round(h*k);c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+      bild=c.toDataURL('image/jpeg',.78);
+      var f=$('foto');f.querySelectorAll('img').forEach(function(x){x.remove()});$('foto-t').hidden=true;
+      var p=new Image();p.src=bild;f.insertBefore(p,f.firstChild)};img.src=r.result};r.readAsDataURL(f)};
+  function list(){var box=$('bp-list'),ps=(load().posts||[]).slice().sort(function(a,b){return a.datum<b.datum?1:-1});box.textContent='';
+    if(!ps.length)return;var h=document.createElement('p');h.className='hint';h.style.margin='8px 0 0';h.textContent='Ihre Beiträge';box.appendChild(h);
+    ps.forEach(function(p){var it=document.createElement('div');it.className='item';
+      var im=document.createElement(p.bild?'img':'span');if(p.bild)im.src=p.bild;else im.className='ph';it.appendChild(im);
+      var t=document.createElement('div'),b=document.createElement('b'),sm=document.createElement('small');b.textContent=p.titel;sm.textContent=p.rubrik+' · '+de(p.datum);t.appendChild(b);t.appendChild(sm);it.appendChild(t);
+      var a=document.createElement('a');a.href='beitrag.html?id='+p.id;a.target='_blank';a.textContent='Ansehen';it.appendChild(a);
+      var x=document.createElement('button');x.textContent='Löschen';x.onclick=function(){if(!confirm('Beitrag „'+p.titel+'“ löschen?'))return;var d=load();d.posts=(d.posts||[]).filter(function(q){return q.id!==p.id});save(d);list()};it.appendChild(x);
+      box.appendChild(it)})}
+  list();
+  $('bp-save').onclick=function(){
+    var titel=$('bp-titel').value.trim();if(!titel){$('bp-titel').focus();return}
+    var d=load(),id=Date.now().toString(36);d.posts=d.posts||[];
+    d.posts.push({id:id,datum:today(),rubrik:$('bp-rubrik').value,titel:titel,kurz:$('bp-kurz').value.trim(),text:$('bp-text').value,bild:bild});
+    if(!save(d))return;
+    ['bp-titel','bp-kurz','bp-text'].forEach(function(i){$(i).value=''});bild=null;$('bp-bild').value='';
+    $('foto').querySelectorAll('img').forEach(function(x){x.remove()});$('foto-t').hidden=false;
+    list();toast('Beitrag ist online','index.html#aktuelles')};
+
+  /* 3. Weinstube */
+  function row(g,p){var r=document.createElement('div');r.className='row';
+    r.innerHTML='<input type="text" placeholder="Gericht"><input type="text" placeholder="Preis" inputmode="decimal"><button aria-label="Entfernen">×</button>';
+    r.children[0].value=g||'';r.children[1].value=p||'';r.children[2].onclick=function(){r.remove()};$('wk-rows').appendChild(r)}
+  function fill(rows){$('wk-rows').textContent='';(rows.length?rows:[{},{},{}]).forEach(function(x){row(x.g,x.p)})}
+  function original(cb){fetch('index.html',{cache:'no-store'}).then(function(r){return r.text()}).then(function(h){
+      var doc=new DOMParser().parseFromString(h,'text/html'),out=[];
+      [].some.call(doc.querySelectorAll('.cat'),function(c){if(c.textContent.trim()!=='Gerichte der Woche')return false;
+        var n=c.nextElementSibling;while(n&&!n.classList.contains('cat')){var g=n.querySelector('.g'),p=n.querySelector('.p');
+          if(g)out.push({g:g.textContent.trim(),p:p?p.textContent.replace('€','').trim():''});n=n.nextElementSibling}return true});
+      cb(out)}).catch(function(){cb([])})}
+  if(d.woche&&d.woche.length)fill(d.woche);else original(fill);
+  $('wk-add').onclick=function(){row()};
+  $('wk-save').onclick=function(){var rows=[].map.call($('wk-rows').children,function(r){return {g:r.children[0].value.trim(),p:r.children[1].value.trim()}}).filter(function(x){return x.g});
+    if(!rows.length){alert('Bitte mindestens ein Gericht eintragen.');return}
+    var d=load();d.woche=rows;if(save(d))toast('Karte gespeichert','index.html#karte-weinstube')};
+  $('wk-reset').onclick=function(){var d=load();delete d.woche;save(d);original(fill);toast('Original-Karte ist wieder da')};
+
+  $('reset').onclick=function(){if(!confirm('Alle Demo-Änderungen löschen?'))return;localStorage.removeItem(KEY);location.reload()};
+}
+})();
+</script>
+</body>
+</html>
